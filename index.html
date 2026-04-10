@@ -1,0 +1,2418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consensus Cloud Solutions · 2026 Engagement Recommendation</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --nav-dark: #1A1D24;
+  --amber: #C87041;
+  --blue: #5D7E8A;
+  --green: #8A9B72;
+  --gold: #C9A44D;
+  --crimson: #9B1C24;
+  --vellum: #E8E4D8;
+  --gray: #6E7388;
+  --graphite: #464B55;
+  --linen: #B8A898;
+  --surface-1: #F0EDE4;
+  --surface-2: #FAF8F4;
+  --border-sub: rgba(26,29,36,0.10);
+  --border-acc: rgba(200,112,65,0.35);
+  --text-1: #1A1D24;
+  --text-2: #464B55;
+  --text-m: #6E7388;
+  --shadow-1: 0 1px 3px rgba(26,29,36,0.08), 0 1px 2px rgba(26,29,36,0.06);
+  --shadow-2: 0 4px 12px rgba(26,29,36,0.10), 0 2px 4px rgba(26,29,36,0.06);
+  --shadow-3: 0 12px 32px rgba(26,29,36,0.14), 0 4px 8px rgba(26,29,36,0.08);
+}
+
+html, body {
+  background: var(--vellum);
+  color: var(--text-2);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================ NAV ============================================ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--nav-dark);
+  border-bottom: 2px solid var(--amber);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  z-index: 100;
+}
+
+.nav-brand {
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  user-select: none;
+}
+
+.nav-brand .dial {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.nav-brand .wordmark {
+  height: 24px;
+  width: auto;
+  display: block;
+}
+
+.nav-brand-mark {
+  display: none;
+}
+
+.nav-spacer { flex: 1; }
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  background: transparent;
+  border: none;
+  padding: 10px 18px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+}
+
+.nav-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
+
+.nav-link.active {
+  color: var(--amber);
+  background: rgba(200,112,65,0.10);
+  border-bottom: 2px solid var(--amber);
+  border-radius: 0;
+  padding-bottom: 8px;
+}
+
+/* ============================================ PAGE STRUCTURE ============================================ */
+.main {
+  margin-top: 64px;
+  padding: 32px 48px 24px;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.25s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+
+.page-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--text-1);
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+
+.page-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--text-m);
+  margin-bottom: 24px;
+  max-width: 900px;
+}
+
+.page-strategy {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-2);
+  margin-bottom: 28px;
+  max-width: 1100px;
+  font-style: italic;
+}
+
+/* ============================================ LANDING PAGE ============================================ */
+.landing {
+  display: none;
+  text-align: center;
+  padding: 100px 20px 40px;
+}
+.landing.active { display: block; animation: fadeIn 0.3s ease; }
+
+.landing-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--amber);
+  margin-bottom: 16px;
+}
+
+.landing-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 44px;
+  color: var(--text-1);
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+  line-height: 1.15;
+}
+
+.landing-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--text-m);
+  margin-bottom: 36px;
+  letter-spacing: 0.5px;
+}
+
+.landing-intro {
+  max-width: 760px;
+  margin: 0 auto 48px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-2);
+}
+
+.landing-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.landing-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-sub);
+  border-radius: 4px;
+  padding: 32px 22px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.landing-card:hover {
+  border-color: var(--amber);
+  box-shadow: var(--shadow-2);
+  transform: translateY(-2px);
+}
+
+.landing-card-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--amber);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.landing-card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--text-1);
+  line-height: 1.25;
+}
+
+/* ============================================ CARDS (TAB PATTERN) ============================================ */
+.cards-row {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.cards-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.cards-row.cols-2x2 { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+.card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-sub);
+  border-radius: 4px;
+  padding: 18px 18px 14px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 200px;
+}
+
+.card:hover {
+  border-color: var(--border-acc);
+  box-shadow: var(--shadow-1);
+}
+
+.card.active {
+  border-color: var(--amber);
+  border-width: 2px;
+  padding: 17px 17px 13px;
+  box-shadow: var(--shadow-2);
+}
+
+.card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.card-tag.required {
+  background: var(--amber);
+  color: #fff;
+}
+.card-tag.recommended {
+  background: rgba(93,126,138,0.15);
+  color: var(--blue);
+  border: 1px solid rgba(93,126,138,0.35);
+}
+.card-tag.consideration {
+  background: rgba(110,115,136,0.10);
+  color: var(--gray);
+  border: 1px solid rgba(110,115,136,0.30);
+}
+.card-tag.neutral {
+  background: rgba(70,75,85,0.08);
+  color: var(--graphite);
+  border: 1px solid rgba(70,75,85,0.20);
+}
+
+.card-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.card-statement {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-1);
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.card-why {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.card-expand {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-sub);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--amber);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.card-expand-icon {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--amber);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.card.active .card-expand-icon {
+  background: var(--amber);
+  color: #fff;
+  transform: rotate(45deg);
+}
+
+/* Detail tray (single tray below card row) */
+.detail-tray {
+  margin-top: 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--amber);
+  border-left: 4px solid var(--amber);
+  border-radius: 4px;
+  padding: 22px 26px;
+  display: none;
+  box-shadow: var(--shadow-2);
+  animation: traySlide 0.25s ease;
+}
+
+@keyframes traySlide {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.detail-tray.open { display: block; }
+
+.detail-tray-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-sub);
+}
+
+.detail-tray-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-1);
+}
+
+.detail-tray-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--amber);
+  margin-bottom: 4px;
+}
+
+.detail-tray-close {
+  background: transparent;
+  border: 1px solid var(--border-sub);
+  color: var(--text-m);
+  width: 28px;
+  height: 28px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.detail-tray-close:hover {
+  background: var(--nav-dark);
+  color: #fff;
+  border-color: var(--nav-dark);
+}
+
+.detail-tray-body {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+.detail-tray-body ul {
+  list-style: none;
+  padding: 0;
+  column-count: 2;
+  column-gap: 32px;
+}
+
+.detail-tray-body li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 10px;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.detail-tray-body li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 1px;
+  background: var(--amber);
+}
+
+.detail-tray-body li strong {
+  color: var(--text-1);
+  font-weight: 600;
+}
+
+.detail-tray-callout {
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: rgba(200,112,65,0.08);
+  border-left: 3px solid var(--amber);
+  border-radius: 2px;
+  font-size: 13px;
+  color: var(--text-2);
+  font-style: italic;
+}
+
+/* ============================================ PAGE 3: APPROACH SPECIFIC ============================================ */
+.dossier-section {
+  margin-top: 36px;
+  background: var(--nav-dark);
+  border-radius: 4px;
+  padding: 32px 36px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.dossier-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--amber);
+}
+
+.dossier-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.dossier-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+
+.dossier-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.dossier-body {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.dossier-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 20px;
+  list-style: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.85);
+}
+
+.dossier-features li {
+  position: relative;
+  padding-left: 14px;
+}
+
+.dossier-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 1px;
+  background: var(--amber);
+}
+
+.dossier-cta-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.dossier-cta {
+  background: var(--amber);
+  color: #fff;
+  border: none;
+  padding: 16px 28px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.18s ease;
+  width: 100%;
+  justify-content: center;
+}
+
+.dossier-cta:hover {
+  background: #B25E33;
+  box-shadow: 0 8px 24px rgba(200,112,65,0.35);
+  transform: translateY(-1px);
+}
+
+.dossier-cta-arrow {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.dossier-cta-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-align: center;
+  width: 100%;
+}
+
+/* ============================================ PAGE 4: WHY REDLINE ============================================ */
+.shy-quote {
+  background: var(--surface-2);
+  border-left: 4px solid var(--amber);
+  padding: 20px 28px;
+  margin-bottom: 22px;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.shy-quote-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--text-1);
+  line-height: 1.4;
+  font-style: italic;
+  flex: 1;
+}
+
+.shy-quote-attribution {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--amber);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+  border-left: 1px solid var(--border-sub);
+  padding-left: 24px;
+  line-height: 1.6;
+}
+
+.shy-quote-attribution strong {
+  display: block;
+  font-weight: 600;
+  color: var(--text-1);
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+
+/* Why Redline layout: venn on top, 3 cards row below */
+.why-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.venn-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+}
+
+.venn-svg {
+  width: 540px;
+  height: 320px;
+  max-width: 100%;
+}
+
+.why-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.why-card {
+  min-height: 180px;
+}
+
+/* ============================================ PAGE 5: SUMMARY ============================================ */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.summary-col {
+  background: var(--surface-2);
+  border: 1px solid var(--border-sub);
+  border-radius: 4px;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-col.investment {
+  background: var(--nav-dark);
+  color: #fff;
+  border-color: var(--nav-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-col.investment::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--amber);
+}
+
+.summary-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--amber);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.summary-col.investment .summary-eyebrow {
+  color: var(--amber);
+}
+
+.summary-header {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--text-1);
+  margin-bottom: 18px;
+}
+
+.summary-col.investment .summary-header {
+  color: #fff;
+}
+
+.summary-list {
+  list-style: none;
+  padding: 0;
+}
+
+.summary-list li {
+  font-size: 14px;
+  color: var(--text-2);
+  margin-bottom: 12px;
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.45;
+}
+
+.summary-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 1px;
+  background: var(--amber);
+}
+
+.summary-list li strong {
+  color: var(--text-1);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.summary-note {
+  font-size: 12px;
+  color: var(--text-m);
+  font-style: italic;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-sub);
+  line-height: 1.5;
+}
+
+.invest-range {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 56px;
+  color: var(--amber);
+  letter-spacing: -2px;
+  line-height: 1;
+  margin: 8px 0 16px;
+}
+
+.invest-subline {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.invest-honest {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  font-style: italic;
+  padding: 12px 14px;
+  background: rgba(200,112,65,0.10);
+  border-left: 2px solid var(--amber);
+  margin-top: auto;
+  line-height: 1.5;
+}
+
+.summary-footer {
+  margin-top: 24px;
+  padding: 16px 24px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-sub);
+  border-radius: 4px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-m);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ============================================ CHALLENGE PAGE BRIDGE ============================================ */
+.bridge-line {
+  margin-top: 24px;
+  padding: 14px 20px;
+  background: var(--surface-2);
+  border-left: 3px solid var(--amber);
+  border-radius: 0 4px 4px 0;
+  font-size: 13.5px;
+  color: var(--text-2);
+  font-style: italic;
+  display: none;
+}
+
+
+/* ============================================ ROADMAP PAGE ============================================ */
+
+:root {
+  --month-px: 80px;
+  --label-w: 280px;
+  --row-h: 64px;
+  --time-h: 44px;
+  --light-vellum: #F5F1E8;
+  --text: var(--text-1);
+}
+
+
+
+
+
+/* Legend */
+.legend {
+  background: var(--light-vellum);
+  padding: 14px 32px;
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(70,75,85,0.25);
+  align-items: center;
+}
+.legend-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.legend-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--graphite);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 500;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--graphite);
+}
+.legend-swatch {
+  width: 16px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Roadmap scroll container */
+.roadmap-scroll {
+  max-height: 70vh;
+  overflow: auto;
+  background: var(--vellum);
+  border-bottom: 1px solid rgba(70,75,85,0.4);
+  position: relative;
+}
+.roadmap {
+  position: relative;
+  width: max-content;
+}
+
+/* Time axis (sticky top) */
+.time-axis {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--vellum);
+  display: flex;
+  height: var(--time-h);
+  border-bottom: 2px solid var(--graphite);
+}
+.time-axis-corner {
+  width: var(--label-w);
+  position: sticky;
+  left: 0;
+  z-index: 6;
+  background: var(--vellum);
+  border-right: 1px solid var(--graphite);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--graphite);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 500;
+}
+.time-months {
+  position: relative;
+  height: 100%;
+}
+.month-label {
+  position: absolute;
+  top: 0;
+  width: var(--month-px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--graphite);
+  font-weight: 500;
+}
+.month-label .m {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+}
+.month-label .y {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--gray);
+  margin-top: 2px;
+  line-height: 1;
+}
+.month-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(70,75,85,0.18);
+}
+.month-divider.quarter {
+  background: rgba(70,75,85,0.45);
+}
+.month-divider.year {
+  background: var(--amber);
+  width: 2px;
+}
+
+/* Active engagement window background shading */
+.active-window-bg {
+  position: absolute;
+  top: var(--time-h);
+  bottom: 0;
+  background: rgba(200,112,65,0.04);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Section headers */
+.section-header {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  background: var(--light-vellum);
+  border-top: 1px solid rgba(70,75,85,0.35);
+  border-bottom: 1px solid rgba(70,75,85,0.35);
+  position: relative;
+  z-index: 2;
+}
+.section-header .sh-content {
+  position: sticky;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  height: 100%;
+  background: var(--light-vellum);
+  border-right: 1px solid rgba(70,75,85,0.2);
+  min-width: var(--label-w);
+}
+.section-header h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  margin: 0;
+  color: var(--graphite);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.section-header .sh-note {
+  font-size: 11px;
+  color: var(--gray);
+  margin-left: 14px;
+  font-style: italic;
+}
+
+/* Block rows */
+.row {
+  display: flex;
+  height: var(--row-h);
+  border-bottom: 1px solid rgba(70,75,85,0.12);
+  position: relative;
+  z-index: 1;
+}
+.row:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.label {
+  width: var(--label-w);
+  padding: 8px 14px 8px 16px;
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background: var(--vellum);
+  border-right: 1px solid var(--graphite);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.row:hover .label {
+  background: #EFEBDF;
+}
+.label.tier-accent-required { border-right: 4px solid var(--crimson); }
+.label.tier-accent-recommended { border-right: 4px solid var(--blue); }
+.label.tier-accent-suggested { border-right: 4px solid var(--gold); }
+.label.tier-accent-optional { border-right: 4px solid var(--gray); }
+
+.label .row-block-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--amber);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+.label .row-block-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.25;
+}
+.label .row-investment {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--graphite);
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+.track {
+  position: relative;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* Phase segments */
+.phase {
+  position: absolute;
+  top: 16px;
+  height: 32px;
+  z-index: 2;
+}
+.phase + .phase {
+  border-left: 1px solid rgba(255,255,255,0.5);
+}
+
+.phase-build-required {
+  background: var(--amber);
+}
+.phase-stabilize-required {
+  background: var(--amber);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.18) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.18) 75%, transparent 75%, transparent);
+  background-size: 8px 8px;
+}
+.phase-stabilize-recommended {
+  background: var(--blue);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.18) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.18) 75%, transparent 75%, transparent);
+  background-size: 8px 8px;
+}
+.phase-stabilize-optionalqa {
+  background: rgba(110,115,136,0.55);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
+  background-size: 8px 8px;
+}
+.phase-maintain-optional {
+  background: repeating-linear-gradient(90deg, rgba(110,115,136,0.32) 0, rgba(110,115,136,0.32) 4px, rgba(110,115,136,0.12) 4px, rgba(110,115,136,0.12) 8px);
+}
+.phase-advisory {
+  background: rgba(110,115,136,0.22);
+  border: 1px solid var(--gray);
+}
+.phase-planning {
+  background: rgba(201,164,77,0.15);
+  border: 2px dashed var(--gold);
+  border-radius: 3px;
+}
+
+.phase-id-label {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: white;
+  font-weight: 600;
+  pointer-events: none;
+  letter-spacing: 0.3px;
+}
+.phase-id-label.dark { color: var(--graphite); }
+
+.phase-investment-label {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: white;
+  font-weight: 600;
+  pointer-events: none;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.phase-investment-label.dark { color: var(--graphite); text-shadow: none; }
+
+/* Earliest start dotted box */
+.earliest-box {
+  position: absolute;
+  top: 18px;
+  height: 28px;
+  border: 1.5px dashed var(--graphite);
+  border-radius: 3px;
+  background: transparent;
+  pointer-events: none;
+  z-index: 1;
+}
+.earliest-box::after {
+  content: 'earliest';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: var(--graphite);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+/* F1 Overlay row */
+.row.overlay-row {
+  height: 56px;
+  background: rgba(110,115,136,0.06);
+  border-top: 1px solid rgba(70,75,85,0.3);
+}
+.row.overlay-row .label {
+  background: rgba(232,228,216,0.95);
+}
+.row.overlay-row:hover .label {
+  background: #EFEBDF;
+}
+.overlay-band {
+  position: absolute;
+  top: 12px;
+  height: 32px;
+  background: repeating-linear-gradient(45deg, rgba(110,115,136,0.18) 0, rgba(110,115,136,0.18) 6px, rgba(110,115,136,0.06) 6px, rgba(110,115,136,0.06) 12px);
+  border: 1px solid var(--gray);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  font-size: 10.5px;
+  color: var(--graphite);
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Tooltip */
+.tooltip {
+  position: fixed;
+  background: var(--nav-dark);
+  color: white;
+  padding: 14px 16px;
+  border-radius: 4px;
+  border-left: 3px solid var(--crimson);
+  max-width: 380px;
+  font-size: 12px;
+  line-height: 1.5;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+.tooltip.visible { opacity: 1; }
+.tooltip.tier-recommended { border-left-color: var(--blue); }
+.tooltip.tier-suggested { border-left-color: var(--gold); }
+.tooltip.tier-optional { border-left-color: var(--gray); }
+
+.tt-tier {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.tooltip.tier-recommended .tt-tier { color: var(--blue); }
+.tooltip.tier-suggested .tt-tier { color: var(--gold); }
+.tooltip.tier-optional .tt-tier { color: var(--gray); }
+
+.tt-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 2px;
+}
+.tt-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.tt-row {
+  margin: 5px 0;
+  display: flex;
+  gap: 8px;
+}
+.tt-label {
+  color: rgba(255,255,255,0.5);
+  font-weight: 500;
+  flex-shrink: 0;
+  min-width: 92px;
+  font-size: 11px;
+}
+.tt-value {
+  color: rgba(255,255,255,0.92);
+  font-size: 12px;
+  flex: 1;
+}
+.tt-rationale {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.78);
+  font-size: 11.5px;
+  font-style: italic;
+  line-height: 1.5;
+}
+.tt-investment-detail {
+  margin-top: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<!-- ============================================ NAV ============================================ -->
+<nav class="nav">
+  <div class="nav-brand" onclick="showPage('landing')">
+    <svg class="dial" width="94" height="51" viewBox="0 0 94 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><clipPath id="nav-dial-clip"><rect x="0" y="0" width="48" height="28"/></clipPath></defs>
+      <g transform="scale(1.9583333333333333,1.8125)">
+        <path d="M0 28 A24 24 0 0 1 48 28 Z" fill="#464B55"/>
+        <path d="M24 28 L42.4 12.6 A24 24 0 0 1 48 28 Z" fill="#9B1C24"/>
+        <g clip-path="url(#nav-dial-clip)">
+          <line x1="24" y1="28" x2="41.8" y2="17.7" stroke="#E8E4D8" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="24" cy="28" r="3" fill="#E8E4D8"/>
+        </g>
+      </g>
+    </svg>
+    <svg class="wordmark" width="270" height="35" viewBox="0 0 270 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="3.22" y="34.46" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="36px" fill="#E8E4D8">Redline</text>
+      <text x="133.58" y="34.46" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="36px" fill="#C87041">Growth</text>
+    </svg>
+  </div>
+  <div class="nav-spacer"></div>
+  <div class="nav-links">
+    <button class="nav-link" data-page="challenge" onclick="showPage('challenge')">The Challenge</button>
+    <button class="nav-link" data-page="approach" onclick="showPage('approach')">The Approach to Success</button>
+    <button class="nav-link" data-page="why" onclick="showPage('why')">Why Redline</button>
+    <button class="nav-link" data-page="summary" onclick="showPage('summary')">Summary</button>
+    <button class="nav-link" data-page="roadmap" onclick="showPage('roadmap')">Roadmap</button>
+  </div>
+</nav>
+
+<!-- ============================================ LANDING ============================================ -->
+<div class="landing active" id="page-landing">
+  <div class="landing-eyebrow">Engagement Recommendation</div>
+  <h1 class="landing-title">Consensus Cloud Solutions</h1>
+  <div class="landing-sub">2026 ENGAGEMENT RECOMMENDATION  ·  APRIL 2026</div>
+  <p class="landing-intro">
+    This document presents Redline's recommended approach to delivering against Consensus's 2026 Clarity revenue target and to set up sustained growth and success for 2027, calibrated to the operational, technical, and commercial realities of the healthcare GTM motion.
+  </p>
+  <div class="landing-cards">
+    <button class="landing-card" onclick="showPage('challenge')">
+      <div class="landing-card-num">01</div>
+      <div class="landing-card-title">The Challenge</div>
+    </button>
+    <button class="landing-card" onclick="showPage('approach')">
+      <div class="landing-card-num">02</div>
+      <div class="landing-card-title">The Approach to Success</div>
+    </button>
+    <button class="landing-card" onclick="showPage('why')">
+      <div class="landing-card-num">03</div>
+      <div class="landing-card-title">Why Redline</div>
+    </button>
+    <button class="landing-card" onclick="showPage('summary')">
+      <div class="landing-card-num">04</div>
+      <div class="landing-card-title">Summary</div>
+    </button>
+    <button class="landing-card" onclick="showPage('roadmap')">
+      <div class="landing-card-num">05</div>
+      <div class="landing-card-title">Activation Roadmap</div>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================ MAIN CONTENT PAGES ============================================ -->
+<div class="main">
+
+  <!-- ============================================ CHALLENGE ============================================ -->
+  <section class="page" id="page-challenge" data-tab-group="challenge">
+    <div class="page-eyebrow">01  ·  The Challenge</div>
+    <h2 class="page-title">The Algebra of Achieving the Number</h2>
+    <p class="page-subtitle">$3.5M in 2026 Clarity bookings is winnable, but the path is constrained by math, throughput, and sales cycle reality. Each constraint shapes what scope can actually move the number this year.</p>
+
+    <div class="cards-row cols-4">
+
+      <div class="card" data-target="ch3" onclick="toggleDetail('challenge', 'ch3', this)">
+        <div class="card-num">01</div>
+        <div class="card-statement">The ~10-month net-new Clarity sales cycle defines what is and isn't achievable in 2026.</div>
+        <div class="card-why">Net-new motion started in 2026 produces 2027 bookings. 2026 bookings come only from faster-cycle motions.</div>
+        <div class="card-expand">
+          <span>The cycle</span>
+          <span class="card-expand-icon">+</span>
+        </div>
+      </div>
+
+      <div class="card" data-target="ch1" onclick="toggleDetail('challenge', 'ch1', this)">
+        <div class="card-num">02</div>
+        <div class="card-statement">$3.5M target. 32 closed deals. 160 qualified opportunities. $17.6M of pipeline coverage required.</div>
+        <div class="card-why">Standard SaaS coverage math at the industry-average 20% close rate, against Consensus's $110K Clarity ACV.</div>
+        <div class="card-expand">
+          <span>The math</span>
+          <span class="card-expand-icon">+</span>
+        </div>
+      </div>
+
+      <div class="card" data-target="ch2" onclick="toggleDetail('challenge', 'ch2', this)">
+        <div class="card-num">03</div>
+        <div class="card-statement">8 BDRs are the binding constraint. Engines must be calibrated to actual rep capacity, not raw account volume.</div>
+        <div class="card-why">BDR absorption rate caps how much intelligence the team can action in a quarter, regardless of how much we generate.</div>
+        <div class="card-expand">
+          <span>The throughput</span>
+          <span class="card-expand-icon">+</span>
+        </div>
+      </div>
+
+      <div class="card" data-target="ch4" onclick="toggleDetail('challenge', 'ch4', this)">
+        <div class="card-num">04</div>
+        <div class="card-statement">Healthcare buyers segment along sub-vertical lines with materially different signal patterns.</div>
+        <div class="card-why">RCM, clinical labs, post-acute, MSO/IPA, imaging, IDN/health systems each behave differently. One-size-fits-all signal libraries don't work.</div>
+        <div class="card-expand">
+          <span>The complexity</span>
+          <span class="card-expand-icon">+</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Detail trays for Challenge -->
+    <div class="detail-tray" id="detail-ch1">
+      <div class="detail-tray-header">
+        <div>
+          <div class="detail-tray-eyebrow">02  ·  The Bookings Math</div>
+          <div class="detail-tray-title">$3.5M ÷ $110K ACV ÷ 20% close rate = the floor</div>
+        </div>
+        <button class="detail-tray-close" onclick="closeDetail('challenge')">✕</button>
+      </div>
+      <div class="detail-tray-body">
+        <ul>
+          <li><strong>$3.5M ÷ $110K ACV</strong> = 32 closed deals required</li>
+          <li><strong>32 ÷ 20% close rate</strong> = 160 qualified opportunities required</li>
+          <li><strong>160 × $110K × 5x coverage</strong> = $17.6M qualified pipeline needed</li>
+          <li>This is the floor, not the ceiling. The question isn't whether to invest in pipeline generation, it's how efficiently.</li>
+        </ul>
+        <div class="detail-tray-callout">Against the alternative of missing the number entirely, the ROI math makes the investment defensible at the corporate level even if Consensus has not yet allocated headroom in the operational budget.</div>
+      </div>
+    </div>
+
+    <div class="detail-tray" id="detail-ch2">
+      <div class="detail-tray-header">
+        <div>
+          <div class="detail-tray-eyebrow">03  ·  The Throughput Constraint</div>
+          <div class="detail-tray-title">BDR capacity governs engine sizing and output cadence, not account volume</div>
+        </div>
+        <button class="detail-tray-close" onclick="closeDetail('challenge')">✕</button>
+      </div>
+      <div class="detail-tray-body">
+        <ul>
+          <li><strong>8 BDRs sustainably absorb 80 to 100 dossier-ready accounts per week</strong></li>
+          <li><strong>~1,300 to 1,600 dossier-ready accounts</strong> across a Q2-Q3 production window</li>
+          <li><strong>60 AEs comfortably carry the resulting qualified opportunities downstream</strong></li>
+          <li>Engines that produce more than the team can action create waste, not pipeline</li>
+        </ul>
+        <div class="detail-tray-callout">Engine sizing is a delivery decision, not a marketing decision. Right-sizing throughput protects both the BDR team's capacity and the integrity of the response rates we'll be measured against.</div>
+      </div>
+    </div>
+
+    <div class="detail-tray" id="detail-ch3">
+      <div class="detail-tray-header">
+        <div>
+          <div class="detail-tray-eyebrow">01  ·  The Sales Cycle Reality</div>
+          <div class="detail-tray-title">Cycle length defines which motions can contribute in 2026</div>
+        </div>
+        <button class="detail-tray-close" onclick="closeDetail('challenge')">✕</button>
+      </div>
+      <div class="detail-tray-body">
+        <ul>
+          <li><strong>Net-new Clarity:</strong> ~10 month cycle. Started in 2026 produces 2027 bookings, not 2026</li>
+          <li><strong>Channel co-sell into healthcare integrators:</strong> 2 to 6 month cycle on in-flight projects</li>
+          <li><strong>Clarity expansion into existing eFax customers:</strong> 2 to 4 month cycle, MSAs already in place</li>
+          <li>This is structural reality, not a function of vendor speed or budget</li>
+        </ul>
+        <div class="detail-tray-callout">2026 bookings require expansion and channel motions. Net-new motions still matter, but as 2027 pre-load, not 2026 contributors. Confusing the two is how revenue plans miss.</div>
+      </div>
+    </div>
+
+    <div class="detail-tray" id="detail-ch4">
+      <div class="detail-tray-header">
+        <div>
+          <div class="detail-tray-eyebrow">04  ·  Healthcare Segmentation Complexity</div>
+          <div class="detail-tray-title">Each sub-vertical requires its own custom-built infrastructure</div>
+        </div>
+        <button class="detail-tray-close" onclick="closeDetail('challenge')">✕</button>
+      </div>
+      <div class="detail-tray-body">
+        <ul>
+          <li><strong>Sub-vertical-specific signal library and scoring model</strong></li>
+          <li><strong>Three-tier ICP contact map</strong> across C-suite, IT leadership, and EMR/HIM operational personas</li>
+          <li><strong>Buying centers, pain points, and conversion drivers</strong> vary materially by sub-vertical</li>
+          <li>Foundation, sub-vertical builds, contact mapping, and BDR enablement are sequential dependencies measured in weeks</li>
+        </ul>
+        <div class="detail-tray-callout">Healthcare data requirements also eliminate offshoring as a viable execution path, which has cost and quality implications most agencies don't account for.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ APPROACH ============================================ -->
+  <section class="page" id="page-approach" data-tab-group="approach">
+    <div class="page-eyebrow">02  ·  The Approach to Success</div>
+    <h2 class="page-title">2026 is winnable, but only by motions that match the cycle window.</h2>
+    <p class="page-strategy">Each required workstream below is designed to optimize for the 2026 bookings target, with options that drive a momentum narrative into 2027 and add channel-driven lift.</p>
+
+    <div class="cards-row cols-4">
+
+      <div class="card" data-target="ap1" onclick="toggleDetail('approach', 'ap1', this)">
+        <span class="card-tag required">Required · 2026 Pipeline</span>
+        <div class="card-statement">Clarity expansion engine into existing healthcare customers.</div>
+        <div class="card-why">All existing eFax Corporate healthcare accounts in the CRM. 2 to 4 month expansion cycle. The primary engine for 2026 bookings.</div>
+        <div class="card-expand">
+          <span>How it works</span>
+          <span class="card-expand-icon">+</span>
+        </div>
+      </div>
+
+      <div class="card" data-target="ap2" onclick="toggleDetail('approach', 'ap2', this)">
+        <span class="card-tag required">Required · 2026 Pipeline</span>
+        <div class="card-statement">Unite expansion engine into the same existing customer base.</div>
+        <div class="card-why">Cascades off the Clarity engine at minimal incremental cost. Lateral 2026 booking lift from the same data foundation.</div>
+        <div class="card-expand">
+          <span>How it works</span>
+          <span class="card-expand-icon">+</span>
+        </div>
+      </div>
+
+      <div class="card" data-target="ap3" onclick="toggleDetail('approach', 'ap3', this)">
+        <span class="card-tag recommended">Recommended</span>
+        <div class="card-statement">Clarity net-new pipeline engines across the highest-density healthcare sub-verticals.</div>
+        <div class="card-why">Supports preloading 2027 pipeline to signal momentum and build sustained growth narrative for the healthcare vertical and Clarity.</div>
+        <div class="card-expand">
+          <span>How it works</span>
+          <span class="card-expand-icon">+</span>
+        </div>
+      </div>
+
+      <div class="card" data-target="ap4" onclick="toggleDetail('approach', 'ap4', this)">
+        <span class="card-tag consideration">For Consideration</span>
+        <div class="card-statement">SI co-sell channel motion into healthcare-specialized integrators.</div>
+        <div class="card-why">Additional 2026 bookings lift through channel partners with active in-flight projects where Clarity belongs.</div>
+        <div class="card-expand">
+          <span>How it works</span>
+          <span class="card-expand-icon">+</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Detail trays for Approach -->
+    <div class="detail-tray" id="detail-ap1">
+      <div class="detail-tray-header">
+        <div>
+          <div class="detail-tray-eyebrow">REQUIRED  ·  2026 Pipeline</div>
+          <div class="detail-tray-title">Clarity expansion engine into existing healthcare customers</div>
+        </div>
+        <button class="detail-tray-close" onclick="closeDetail('approach')">✕</button>
+      </div>
+      <div class="detail-tray-body">
+        <ul>
+          <li><strong>Live signal-enriched lead identification engine</strong> surfacing Clarity expansion opportunities to BDRs and AEs delivered on regular cadence</li>
+          <li><strong>Applied across all existing eFax Corporate healthcare accounts</strong> in the CRM</li>
+          <li><strong>Existing MSAs eliminate procurement friction,</strong> compressing sales cycle from 10 months (net-new) to 2-4 months (expansion)</li>
+          <li><strong>Scoring model with audit-trail</strong> per signal weight, defendable internally as the strategic thesis evolves</li>
+          <li><strong>Weekly batch delivery rhythm,</strong> not continuous. Keeps BDR utilization full and steady while conserving Clay credits</li>
+          <li><strong>Lemlist and Instantly outbound execution layer</strong> augments BDR bandwidth, removing the BDR-capacity ceiling as the limiting constraint on engine output</li>
+          <li><strong>This is the workstream that moves the 2026 number.</strong> Everything else is supporting structure</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="detail-tray" id="detail-ap2">
+      <div class="detail-tray-header">
+        <div>
+          <div class="detail-tray-eyebrow">REQUIRED  ·  2026 Pipeline</div>
+          <div class="detail-tray-title">Unite expansion engine into the same existing customer base</div>
+        </div>
+        <button class="detail-tray-close" onclick="closeDetail('approach')">✕</button>
+      </div>
+      <div class="detail-tray-body">
+        <ul>
+          <li><strong>Parallel engine</strong> targeting the care coordination buying center at the same accounts</li>
+          <li><strong>Shares Salesforce data infrastructure</strong> and ICP contact map with the Clarity engine</li>
+          <li><strong>Different signal weights</strong> tuned for Unite buyers: clinical operations leads, care coordination directors, ADT/referral workflow owners</li>
+          <li><strong>Different dossier framing,</strong> separate outbound sequences. Same underlying account universe</li>
+          <li><strong>Lemlist and Instantly outbound execution layer</strong> fueled by the Clarity engine, augmenting BDR bandwidth across both motions without adding headcount</li>
+          <li><strong>The most cost-efficient workstream</strong> in the engagement because the connective tissue is shared with the Clarity engine</li>
+          <li><strong>Goes live on a 2-week lag from the Clarity engine,</strong> leveraging the cascade for efficiency and compounding 2026 lift</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="detail-tray" id="detail-ap3">
+      <div class="detail-tray-header">
+        <div>
+          <div class="detail-tray-eyebrow">RECOMMENDED</div>
+          <div class="detail-tray-title">Clarity net-new pipeline engines across the highest-density sub-verticals</div>
+        </div>
+        <button class="detail-tray-close" onclick="closeDetail('approach')">✕</button>
+      </div>
+      <div class="detail-tray-body">
+        <ul>
+          <li><strong>Sub-vertical signal libraries</strong> calibrated to the named sub-verticals from Asia's list (RCM, clinical labs, MSO/IPA, post-acute, others)</li>
+          <li><strong>Specific selections determined at kickoff discovery</strong> to optimize for highest-value pipeline contribution</li>
+          <li><strong>Sub-vertical signal libraries become shared infrastructure</strong> that progressively deepens the existing-customer expansion engine</li>
+          <li><strong>10-month net-new cycle</strong> means these motions produce 2027 bookings, pre-loading the 2027 number with significant runway</li>
+          <li><strong>Important for the healthcare vertical and Clarity</strong> sustained-growth narrative and 2027 budget conversation</li>
+          <li><strong>Recommended but not required</strong> to hit 2026. The Phase 1 + Phase 2 wave structure can be added in stages based on importance and available budget</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="detail-tray" id="detail-ap4">
+      <div class="detail-tray-header">
+        <div>
+          <div class="detail-tray-eyebrow">FOR CONSIDERATION</div>
+          <div class="detail-tray-title">SI co-sell channel motion into healthcare-specialized integrators</div>
+        </div>
+        <button class="detail-tray-close" onclick="closeDetail('approach')">✕</button>
+      </div>
+      <div class="detail-tray-body">
+        <ul>
+          <li><strong>Channel-play dossiers</strong> targeting healthcare-specialized SIs and Big Four healthcare consulting practices</li>
+          <li><strong>Account universe of ~25 to 40 firms</strong> including Nordic Consulting, Tegria, Impact Advisors, Chartis, Huron, plus healthcare practices at Deloitte, KPMG, EY, PwC, and Optum Advisory</li>
+          <li><strong>Whitespace play:</strong> these firms are absent from Consensus's current visible partner ecosystem despite running the engagements where Clarity belongs</li>
+          <li><strong>Dossiers route to AEs</strong> (not BDRs), coordinating with the Consensus partnerships function to feed and amplify channel strategy</li>
+          <li><strong>2 to 6 month cycle and $200K+ ACVs</strong> versus direct net-new. Genuine 2026 potential</li>
+        </ul>
+        <div class="detail-tray-callout">This motion may be fundable from a separate budget envelope (channel partnerships or strategic alliances) rather than the core Clarity revenue gap budget.</div>
+      </div>
+    </div>
+
+    <!-- Dossier section -->
+    <div class="dossier-section">
+      <div class="dossier-grid">
+        <div>
+          <div class="dossier-eyebrow">What Gets Delivered to the Rep</div>
+          <h3 class="dossier-title">The output of these engines is not a list of names. It's a structured dossier per qualified account.</h3>
+          <p class="dossier-body">
+            Every dossier gives the BDR or AE everything they need to run a meaningful first conversation. Account context, the signals that triggered prioritization, likely pain themes, direct contacts identified with context, ready-to-use value language, and a rep action plan. Customizable to whatever framing your team wants.
+          </p>
+          <ul class="dossier-features">
+            <li>Account context</li>
+            <li>Rep action plan</li>
+            <li>Likely pain themes</li>
+            <li>Direct contacts identified with context</li>
+            <li>Top signals</li>
+            <li>Ready-to-use value language</li>
+          </ul>
+        </div>
+        <div class="dossier-cta-wrap">
+          <a class="dossier-cta" href="https://cisco-cisco-thousandeyes-w-aa3b4b-e971h98vq-flintai.vercel.app/dossier/shopify-02" target="_blank" rel="noopener">
+            View Example Dossier
+            <span class="dossier-cta-arrow">→</span>
+          </a>
+          <div class="dossier-cta-note">Example Production Work · Opens in new tab</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ WHY REDLINE ============================================ -->
+  <section class="page" id="page-why" data-tab-group="why">
+    <div class="page-eyebrow">03  ·  Why Redline</div>
+    <h2 class="page-title">We Understand the Problem. We Know How to Solve It.</h2>
+
+    <div class="shy-quote">
+      <div class="shy-quote-text">"I evaluated agencies like the ones you're considering when I was on the customer side. I chose Redline. Then I joined them."</div>
+      <div class="shy-quote-attribution">
+        <strong>Shy Rahnama</strong>
+        Senior GTM Engineering Lead<br>
+        Former SVP of Growth Ops
+      </div>
+    </div>
+
+    <div class="why-grid">
+      <div class="venn-wrap">
+        <svg class="venn-svg" viewBox="0 0 700 440" xmlns="http://www.w3.org/2000/svg">
+          <!-- Three overlapping circles, semi-transparent. Closer spacing for larger center overlap -->
+          <circle cx="350" cy="175" r="115"
+                  fill="rgba(200,112,65,0.32)"
+                  stroke="#C87041" stroke-width="2"/>
+          <circle cx="300" cy="290" r="115"
+                  fill="rgba(93,126,138,0.32)"
+                  stroke="#5D7E8A" stroke-width="2"/>
+          <circle cx="400" cy="290" r="115"
+                  fill="rgba(138,155,114,0.32)"
+                  stroke="#8A9B72" stroke-width="2"/>
+
+          <!-- Center label where all three overlap -->
+          <text x="350" y="246"
+                text-anchor="middle"
+                font-family="Space Grotesk, sans-serif"
+                font-size="15"
+                font-weight="700"
+                fill="#1A1D24"
+                letter-spacing="2.5">REDLINE</text>
+
+          <!-- Top label: Experience + Expertise -->
+          <line x1="350" y1="60" x2="350" y2="40"
+                stroke="#6E7388" stroke-width="1"/>
+          <text x="350" y="28"
+                text-anchor="middle"
+                font-family="Space Grotesk, sans-serif"
+                font-size="14"
+                font-weight="600"
+                fill="#1A1D24">Experience + Expertise</text>
+
+          <!-- Bottom-left label: Outcome-Based Approach -->
+          <line x1="185" y1="290" x2="135" y2="290"
+                stroke="#6E7388" stroke-width="1"/>
+          <text x="75" y="285"
+                text-anchor="middle"
+                font-family="Space Grotesk, sans-serif"
+                font-size="14"
+                font-weight="600"
+                fill="#1A1D24">Outcome-Based</text>
+          <text x="75" y="304"
+                text-anchor="middle"
+                font-family="Space Grotesk, sans-serif"
+                font-size="14"
+                font-weight="600"
+                fill="#1A1D24">Approach</text>
+
+          <!-- Bottom-right label: Actionable Quality Intelligence at Scale -->
+          <line x1="515" y1="290" x2="565" y2="290"
+                stroke="#6E7388" stroke-width="1"/>
+          <text x="625" y="285"
+                text-anchor="middle"
+                font-family="Space Grotesk, sans-serif"
+                font-size="14"
+                font-weight="600"
+                fill="#1A1D24">Actionable Quality</text>
+          <text x="625" y="304"
+                text-anchor="middle"
+                font-family="Space Grotesk, sans-serif"
+                font-size="14"
+                font-weight="600"
+                fill="#1A1D24">Intelligence at Scale</text>
+        </svg>
+      </div>
+
+      <div class="why-cards">
+
+        <div class="card why-card" data-target="wr1" onclick="toggleDetail('why', 'wr1', this)">
+          <span class="card-tag" style="background: rgba(200,112,65,0.15); color: var(--amber); border: 1px solid rgba(200,112,65,0.40);">Experience + Expertise</span>
+          <div class="card-statement">Senior GTM Strategy + Artisan Partner-level execution ensures we do the right things and we do them right.</div>
+          <div class="card-why">We've built these motions in this exact problem space. We know what to look out for, and also how to mitigate new surprises.</div>
+          <div class="card-expand">
+            <span>What that means</span>
+            <span class="card-expand-icon">+</span>
+          </div>
+        </div>
+
+        <div class="card why-card" data-target="wr2" onclick="toggleDetail('why', 'wr2', this)">
+          <span class="card-tag" style="background: rgba(93,126,138,0.15); color: var(--blue); border: 1px solid rgba(93,126,138,0.40);">Outcome-Based Approach</span>
+          <div class="card-statement">Hyper-focused on the levers that move the needle to hit the target for 2026.</div>
+          <div class="card-why">We prioritize pipeline velocity, and measure success on outcomes, not activities.</div>
+          <div class="card-expand">
+            <span>What that means</span>
+            <span class="card-expand-icon">+</span>
+          </div>
+        </div>
+
+        <div class="card why-card" data-target="wr3" onclick="toggleDetail('why', 'wr3', this)">
+          <span class="card-tag" style="background: rgba(138,155,114,0.18); color: #6B7C56; border: 1px solid rgba(138,155,114,0.45);">Actionable Quality Intelligence at Scale</span>
+          <div class="card-statement">Custom signal-enriched engines producing rep-ready dossiers, not generic Clay tables.</div>
+          <div class="card-why">Reps can increase time on outreach, not research, and do so with greater insight and confidence.</div>
+          <div class="card-expand">
+            <span>What that means</span>
+            <span class="card-expand-icon">+</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Detail trays for Why Redline -->
+    <div class="detail-tray" id="detail-wr1">
+      <div class="detail-tray-header">
+        <div>
+          <div class="detail-tray-eyebrow">Experience + Expertise</div>
+          <div class="detail-tray-title">Active in this exact problem space, and we transfer what we build</div>
+        </div>
+        <button class="detail-tray-close" onclick="closeDetail('why')">✕</button>
+      </div>
+      <div class="detail-tray-body">
+        <ul>
+          <li><strong>Healthcare experience at companies including Datavant and Integral Privacy Technologies.</strong> Additional regulated industry experience in financial services, banking, and technical internet policy and data governance</li>
+          <li><strong>Active channel motion work</strong> for enterprise software clients, including dossier formats optimized for partner-led co-sell</li>
+          <li><strong>Healthcare data requirements eliminate offshoring</strong> as a viable execution path. Quality lives in the team, not in a process</li>
+          <li><strong>Engine documentation and handoff package</strong> included at engagement close. Sub-vertical signal libraries, scoring models, and dossier templates owned by Consensus</li>
+          <li><strong>If priorities shift in 2027,</strong> your team can operate and extend the engines independently without our involvement</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="detail-tray" id="detail-wr2">
+      <div class="detail-tray-header">
+        <div>
+          <div class="detail-tray-eyebrow">Outcome-Based Approach</div>
+          <div class="detail-tray-title">Every lever calibrated to pipeline velocity, not activity volume</div>
+        </div>
+        <button class="detail-tray-close" onclick="closeDetail('why')">✕</button>
+      </div>
+      <div class="detail-tray-body">
+        <ul>
+          <li><strong>Sequence design</strong> with dossier-driven personalization at the individual contact level</li>
+          <li><strong>3 to 5 verified contacts</strong> per qualified account, mapped across the three ICP tiers</li>
+          <li><strong>Continuous A/B optimization</strong> against measurable reply rate targets</li>
+          <li><strong>Lemlist and Instantly stack</strong> configured and operated by Redline, addressing the BDR-capacity ceiling as the limiting constraint on engine output</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="detail-tray" id="detail-wr3">
+      <div class="detail-tray-header">
+        <div>
+          <div class="detail-tray-eyebrow">Actionable Quality Intelligence at Scale</div>
+          <div class="detail-tray-title">Engines specific to your business, dossiers ready for the rep</div>
+        </div>
+        <button class="detail-tray-close" onclick="closeDetail('why')">✕</button>
+      </div>
+      <div class="detail-tray-body">
+        <ul>
+          <li><strong>Custom signal-enriched engines,</strong> not inadequate off-the-shelf Clay templates</li>
+          <li><strong>Three-tier ICP contact mapping</strong> calibrated to healthcare buying centers</li>
+          <li><strong>Agentic dossier production</strong> scales without proportional headcount growth</li>
+          <li><strong>Weekly batch delivery rhythm,</strong> calibrated for BDR absorption rate and Clay credit efficiency</li>
+          <li><strong>Most agencies in the Clay ecosystem stop at table generation.</strong> We start there</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ SUMMARY ============================================ -->
+  <section class="page" id="page-summary">
+    <div class="page-eyebrow">04  ·  Summary</div>
+    <h2 class="page-title">Where We Land</h2>
+    <p class="page-subtitle">A focused recommendation, an investment range that earns the right to compete, and an explicit invitation to react before we move to a refined statement of work.</p>
+
+    <div class="summary-grid">
+
+      <div class="summary-col">
+        <div class="summary-eyebrow">Recommended Scope</div>
+        <div class="summary-header">What we recommend</div>
+        <ul class="summary-list">
+          <li>
+            <strong>Clarity expansion engine</strong>
+            Primary 2026 booking driver into existing healthcare customers
+          </li>
+          <li>
+            <strong>Unite expansion engine</strong>
+            Lateral 2026 lift on shared infrastructure
+          </li>
+          <li>
+            <strong>Clarity net-new sub-vertical engines</strong>
+            Recommended for 2027 pre-load and sustained growth narrative
+          </li>
+        </ul>
+        <div class="summary-note">
+          SI co-sell channel motion available for consideration as a separate addendum. Potentially fundable from a different budget envelope.
+        </div>
+      </div>
+
+      <div class="summary-col investment">
+        <div class="summary-eyebrow">2026 Investment</div>
+        <div class="summary-header">Phase 1 Range</div>
+        <div class="invest-range">$200K–$300K</div>
+        <div class="invest-subline">
+          Final pricing to be structured based on feedback and final scope alignment.
+        </div>
+        <div class="invest-honest">
+          Like remodeling an old house, we'll know more once we're inside. We'll be straightforward if something changes.
+        </div>
+      </div>
+
+      <div class="summary-col">
+        <div class="summary-eyebrow">Next Step</div>
+        <div class="summary-header">What we need from you</div>
+        <p style="font-size: 14px; color: var(--text-2); margin-bottom: 16px; line-height: 1.55;">
+          This is a feedback session, not a final proposal. Tell us what resonates, what doesn't, and what you'd want adjusted. Then we move to a refined statement of work.
+        </p>
+        <ul class="summary-list">
+          <li><strong>Reactions to the approach</strong></li>
+          <li><strong>Reactions to the scope</strong></li>
+          <li><strong>Reactions to the investment expectation</strong></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="summary-footer">
+      Submitted with appreciation for the opportunity  ·  Redline Growth  ·  April 2026
+    </div>
+  </section>
+  <!-- ============================================ ROADMAP ============================================ -->
+  <section class="page" id="page-roadmap">
+    <div class="page-eyebrow">05  ·  Activation Roadmap</div>
+    <h2 class="page-title">Sequencing the Work, Phase by Phase</h2>
+    <p class="page-subtitle">Every building block from the activation options catalog rendered against the engagement timeline. Hover any bar for full block detail. Time axis sticks to the top, label column sticks to the left, so you can scan motion families against the calendar without losing context. Phase fills indicate Redline engagement role at each stage. Dashed boxes mark blocks where the earliest possible start is materially earlier than the recommended start.</p>
+
+    <div class="legend">
+      <div class="legend-group">
+        <span class="legend-label">Tier</span>
+        <div class="legend-item"><div class="legend-swatch" style="background:var(--crimson)"></div>Required</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:var(--blue)"></div>Recommended</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:var(--gold)"></div>Suggested</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:var(--gray)"></div>Optional</div>
+      </div>
+      <div class="legend-group">
+        <span class="legend-label">Phase Engagement</span>
+        <div class="legend-item"><div class="legend-swatch" style="background:var(--amber)"></div>Build (Redline required)</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:var(--amber);background-image:linear-gradient(135deg,rgba(255,255,255,0.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.4) 50%,rgba(255,255,255,0.4) 75%,transparent 75%);background-size:6px 6px"></div>Stabilize (QA required)</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:repeating-linear-gradient(90deg,rgba(110,115,136,0.45) 0,rgba(110,115,136,0.45) 3px,rgba(110,115,136,0.18) 3px,rgba(110,115,136,0.18) 6px)"></div>Maintain (transition-eligible)</div>
+      </div>
+      <div class="legend-group">
+        <span class="legend-label">Other</span>
+        <div class="legend-item"><div class="legend-swatch" style="background:transparent;border:1.5px dashed var(--graphite)"></div>Earliest possible start</div>
+      </div>
+    </div>
+
+    <div class="roadmap-scroll" id="scroll">
+      <div class="roadmap" id="roadmap"></div>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+  </section>
+
+</div>
+
+<script>
+function showPage(pageId) {
+  // Hide landing
+  document.getElementById('page-landing').classList.remove('active');
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // Reset all nav links
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  // Close any open detail trays
+  document.querySelectorAll('.detail-tray').forEach(t => t.classList.remove('open'));
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+
+  if (pageId === 'landing') {
+    document.getElementById('page-landing').classList.add('active');
+  } else {
+    const target = document.getElementById('page-' + pageId);
+    if (target) target.classList.add('active');
+    const link = document.querySelector('.nav-link[data-page="' + pageId + '"]');
+    if (link) link.classList.add('active');
+  }
+  window.scrollTo(0, 0);
+}
+
+function toggleDetail(group, targetId, cardEl) {
+  const tray = document.getElementById('detail-' + targetId);
+  const isAlreadyOpen = cardEl.classList.contains('active');
+
+  // Close all cards and trays in this group
+  const section = document.querySelector('[data-tab-group="' + group + '"]');
+  if (section) {
+    section.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    section.querySelectorAll('.detail-tray').forEach(t => t.classList.remove('open'));
+  }
+
+  // If it was already open, leave closed. Otherwise open the clicked one.
+  if (!isAlreadyOpen) {
+    cardEl.classList.add('active');
+    if (tray) tray.classList.add('open');
+  }
+}
+
+function closeDetail(group) {
+  const section = document.querySelector('[data-tab-group="' + group + '"]');
+  if (section) {
+    section.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    section.querySelectorAll('.detail-tray').forEach(t => t.classList.remove('open'));
+  }
+}
+
+// Keyboard nav: ESC closes any open detail tray
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.detail-tray.open').forEach(t => t.classList.remove('open'));
+    document.querySelectorAll('.card.active').forEach(c => c.classList.remove('active'));
+  }
+});
+
+/* ============================================ ROADMAP SCRIPT ============================================ */
+(function() {
+
+
+
+const MONTH_PX = 90;
+const LABEL_W = 280;
+
+const MONTHS = [
+  ['May','2026'],['Jun','2026'],['Jul','2026'],['Aug','2026'],['Sep','2026'],['Oct','2026'],
+  ['Nov','2026'],['Dec','2026'],['Jan','2027'],['Feb','2027'],['Mar','2027'],['Apr','2027'],
+  ['May','2027'],['Jun','2027']
+];
+const QUARTER_STARTS = new Set([2,5,8,11]);
+const YEAR_STARTS = new Set([8]);
+
+const blocks = [
+  // Required and Recommended section
+  {
+    id:'A1', name:'Clarity Expansion (existing)', fullName:'Clarity Expansion into Existing Healthcare Customers',
+    tier:'Required', section:'reqrec', investment:'$45-65K',
+    phases:[
+      {start:0.0,end:1.4,role:'build-required',label:'Build'},
+      {start:1.4,end:2.8,role:'stabilize-required',label:'Stabilize'},
+      {start:2.8,end:8.0,role:'maintain-optional',label:'Maintain'}
+    ],
+    earliestStart:0.0, dependencies:'None',
+    rationale:'First block to activate. Fastest conversion cycle in the catalog (2-4 months) and the only motion with a direct line to 2026 Clarity bookings through existing account relationships.'
+  },
+  {
+    id:'A2', name:'Unite Expansion (existing)', fullName:'Unite Expansion into Existing Healthcare Customers',
+    tier:'Required', section:'reqrec', investment:'$20-35K',
+    phases:[
+      {start:0.7,end:1.6,role:'build-required',label:'Build'},
+      {start:1.6,end:2.5,role:'stabilize-required',label:'Stabilize'},
+      {start:2.5,end:8.0,role:'maintain-optional',label:'Maintain'}
+    ],
+    earliestStart:0.7, dependencies:'A1 foundation stable (~3 weeks after A1 kickoff)',
+    rationale:'Highest-leverage second motion. Cascades on A1 infrastructure with care coordination buying center pivot. Marginal cost over A1 is small because account base, data infrastructure, and delivery pipeline are shared.'
+  },
+  {
+    id:'A3', name:'SI Co-Sell Channel', fullName:'Healthcare SI and Big Four Healthcare Practice Co-Sell Motion',
+    tier:'Recommended', section:'reqrec', investment:'$35-45K',
+    phases:[
+      {start:0.0,end:1.4,role:'build-required',label:'Build'},
+      {start:1.4,end:2.8,role:'stabilize-required',label:'Stabilize'},
+      {start:2.8,end:8.0,role:'maintain-optional',label:'Maintain'}
+    ],
+    earliestStart:0.0, dependencies:'None',
+    rationale:'Phase 1 activation. 2-6 month channel cycle and $200K+ ACVs make A3 a 2026 booking contributor alongside A1, A2, and A4. Effort is comparable to a B2-B4 sub-vertical build.'
+  },
+  {
+    id:'B2', name:'Clarity sub-vertical #1', fullName:'Clarity Net-New Sub-Vertical Build #1',
+    tier:'Recommended', section:'reqrec', investment:'$30-45K',
+    phases:[
+      {start:1.0,end:2.4,role:'build-required',label:'Build'},
+      {start:2.4,end:3.8,role:'stabilize-required',label:'Stabilize'},
+      {start:3.8,end:4.5,role:'maintain-optional',label:'Maintain'}
+    ],
+    earliestStart:0.0, dependencies:'Can run parallel to A1 foundation work',
+    rationale:'First Clarity net-new sub-vertical. Specific sub-vertical chosen at kickoff discovery. Phase 1 activation preserves maximum runway for 2027 pipeline preload.'
+  },
+  {
+    id:'B3', name:'Clarity sub-vertical #2', fullName:'Clarity Net-New Sub-Vertical Build #2',
+    tier:'Recommended', section:'reqrec', investment:'$25-35K',
+    phases:[
+      {start:2.0,end:3.4,role:'build-required',label:'Build'},
+      {start:3.4,end:4.8,role:'stabilize-required',label:'Stabilize'},
+      {start:4.8,end:5.5,role:'maintain-optional',label:'Maintain'}
+    ],
+    earliestStart:1.5, dependencies:'B2 stagger (1-2 weeks behind B2)',
+    rationale:'Second Clarity sub-vertical. Benefits from B2 learnings on signal library construction.'
+  },
+  {
+    id:'B4', name:'Clarity sub-vertical #3', fullName:'Clarity Net-New Sub-Vertical Build #3',
+    tier:'Recommended', section:'reqrec', investment:'$25-35K',
+    phases:[
+      {start:3.0,end:4.4,role:'build-required',label:'Build'},
+      {start:4.4,end:5.8,role:'stabilize-required',label:'Stabilize'},
+      {start:5.8,end:6.5,role:'maintain-optional',label:'Maintain'}
+    ],
+    earliestStart:2.5, dependencies:'B3 stagger',
+    rationale:'Third Clarity sub-vertical. Further compounding from B2/B3 learnings.'
+  },
+  {
+    id:'B5', name:'Clarity sub-vertical #4', fullName:'Clarity Net-New Sub-Vertical Build #4 (Next Three)',
+    tier:'Recommended', section:'reqrec', investment:'$19-28K',
+    phases:[
+      {start:4.0,end:4.9,role:'build-required',label:'Build'},
+      {start:4.9,end:5.8,role:'stabilize-optionalqa',label:'Stabilize'},
+      {start:5.8,end:6.3,role:'maintain-optional',label:'Maintain'}
+    ],
+    earliestStart:4.0, dependencies:'B2-B4 stable, at least one sub-vertical produced conversion data',
+    rationale:'First of next three sub-verticals. Materially lower marginal cost due to shared B2-B4 infrastructure. Stabilize phase becomes transition-eligible with QA.'
+  },
+  {
+    id:'B6', name:'Clarity sub-vertical #5', fullName:'Clarity Net-New Sub-Vertical Build #5',
+    tier:'Recommended', section:'reqrec', investment:'$19-28K',
+    phases:[
+      {start:5.0,end:5.9,role:'build-required',label:'Build'},
+      {start:5.9,end:6.8,role:'stabilize-optionalqa',label:'Stabilize'},
+      {start:6.8,end:7.3,role:'maintain-optional',label:'Maintain'}
+    ],
+    earliestStart:5.0, dependencies:'B5 stagger',
+    rationale:'Fifth Clarity sub-vertical.'
+  },
+  {
+    id:'B7', name:'Clarity sub-vertical #6', fullName:'Clarity Net-New Sub-Vertical Build #6',
+    tier:'Recommended', section:'reqrec', investment:'$19-28K',
+    phases:[
+      {start:6.0,end:6.9,role:'build-required',label:'Build'},
+      {start:6.9,end:7.8,role:'stabilize-optionalqa',label:'Stabilize'},
+      {start:7.8,end:8.0,role:'maintain-optional',label:'Maintain'}
+    ],
+    earliestStart:6.0, dependencies:'B6 stagger',
+    rationale:'Sixth Clarity sub-vertical, completing the full six-segment coverage of Clarity net-new motions.'
+  },
+
+  // Suggested section
+  {
+    id:'A4', name:'ECFax Fed / SLED (existing)', fullName:'ECFax Federal and SLED Existing Base Expansion',
+    tier:'Suggested', section:'sug', investment:'$25-40K',
+    phases:[
+      {start:0.0,end:1.4,role:'build-required',label:'Build'},
+      {start:1.4,end:2.8,role:'stabilize-required',label:'Stabilize'},
+      {start:2.8,end:8.0,role:'maintain-optional',label:'Maintain'}
+    ],
+    earliestStart:0.0, dependencies:'None',
+    rationale:'Public-sector expansion into existing ECFax base. FedRAMP authorization and existing contracts compress the cycle relative to cold public-sector motions. Phase 1 activation alongside A1/A2.'
+  },
+  {
+    id:'B1', name:'eFax Self-Serve Consolidation', fullName:'eFax Self-Serve Consolidation',
+    tier:'Suggested', section:'sug', investment:'$15-25K',
+    phases:[
+      {start:0.0,end:1.0,role:'build-required',label:'Build'},
+      {start:1.0,end:2.0,role:'stabilize-required',label:'Stabilize'},
+      {start:2.0,end:8.0,role:'maintain-optional',label:'Maintain'}
+    ],
+    earliestStart:0.0, dependencies:'None (parallel to Family A)',
+    rationale:'Pattern matching motion. Independent of signal-scoring infrastructure. Fastest full-cycle close in the catalog when consolidation opportunities materialize.'
+  },
+
+  // Optional section
+  {
+    id:'A5', name:'Imaging Diagnostic Advisory', fullName:'Imaging Diagnostic Advisory',
+    tier:'Optional', section:'opt', investment:'$5-8K',
+    phases:[
+      {start:0.0,end:0.7,role:'advisory',label:'Advisory'}
+    ],
+    earliestStart:0.0, dependencies:'None',
+    rationale:'Advisory-only contribution to Consensus internal motion. No production work, no Redline quality gate.'
+  },
+  {
+    id:'A6', name:'IDN / Health Systems Advisory', fullName:'IDN and Health Systems Advisory',
+    tier:'Optional', section:'opt', investment:'$5-8K',
+    phases:[
+      {start:1.0,end:1.7,role:'advisory',label:'Advisory'}
+    ],
+    earliestStart:1.0, dependencies:'Paced to Consensus internal build timeline',
+    rationale:'Same model as A5. Working session plus written recommendations against the Consensus internal build.'
+  },
+  {
+    id:'C1', name:'Unite MSO/IPA/Central Intake', fullName:'Unite Net-New · MSO/IPA/Central Intake Sub-Vertical',
+    tier:'Optional', section:'opt', investment:'$18-25K', conditional:true,
+    phases:[
+      {start:5.0,end:5.9,role:'build-required',label:'Build'},
+      {start:5.9,end:6.8,role:'stabilize-required',label:'Stabilize'}
+    ],
+    earliestStart:5.0, dependencies:'Conditional on Clarity sub-vertical selection. Cascades off corresponding Clarity build.',
+    rationale:'Conditional placement. Activation depends on which Clarity sub-vertical is selected as the parent. Q4 2026 placement is illustrative.'
+  },
+  {
+    id:'C2', name:'Unite Home Health & Post Acute', fullName:'Unite Net-New · Home Health & Post Acute Sub-Vertical',
+    tier:'Optional', section:'opt', investment:'$18-25K', conditional:true,
+    phases:[
+      {start:6.0,end:6.9,role:'build-required',label:'Build'},
+      {start:6.9,end:7.8,role:'stabilize-optionalqa',label:'Stabilize'}
+    ],
+    earliestStart:6.0, dependencies:'Same conditional logic as C1',
+    rationale:'Conditional placement. If both C1 and C2 are elected, combined marginal cost is lower because of further shared infrastructure.'
+  },
+  {
+    id:'D1', name:'Clarity Outside-In Discovery', fullName:'Clarity Outside-In Discovery',
+    tier:'Optional', section:'opt', investment:'$12-20K',
+    phases:[
+      {start:5.0,end:5.9,role:'build-required',label:'Build'},
+      {start:5.9,end:6.8,role:'stabilize-recommended',label:'Stabilize'}
+    ],
+    earliestStart:5.0, dependencies:'Phase 1 conversion data (available start of Q4 2026)',
+    rationale:'Q4 2026 activation. Discovery against unvalidated signals would waste the motion. Earliest possible start gates on Phase 1 producing first conversion data.'
+  },
+  {
+    id:'D2', name:'Unite Outside-In Discovery', fullName:'Unite Outside-In Discovery',
+    tier:'Optional', section:'opt', investment:'$10-15K',
+    phases:[
+      {start:5.0,end:5.7,role:'build-required',label:'Build'},
+      {start:5.7,end:6.4,role:'stabilize-recommended',label:'Stabilize'}
+    ],
+    earliestStart:5.0, dependencies:'Phase 1 conversion data',
+    rationale:'Same dependency as D1. Sized smaller because Unite addressable universe is narrower.'
+  },
+  {
+    id:'E1', name:'Conductor Signal / TAM Planning', fullName:'Conductor Signal and TAM Planning',
+    tier:'Optional', section:'opt', investment:'$10-15K', planning:true,
+    phases:[
+      {start:13.0,end:13.9,role:'planning',label:'Planning'}
+    ],
+    earliestStart:8.0, dependencies:'Phase 1 outcomes (earliest Q1 2027) or Phase 1 + Phase 2 outcomes (recommended mid-2027)',
+    rationale:'Mid-2027 planning exercise. HIT architecture sale with 9-18 month cycle, 2028 bookings horizon. Recommended after Phase 2 outcomes are available, but Consensus can elect to start as early as Q1 2027 once Phase 1 conversion data is in hand if there is appetite for earlier scoping.'
+  }
+];
+
+const F1 = {
+  id:'F1', name:'Retained Advisory Overlay', fullName:'Retained Advisory Overlay',
+  tier:'Optional', investment:'$3-5K/mo',
+  investmentDetail:'$3K/mo: ≤5 active engines, monthly cadence  ·  $5K/mo: ≤5 engines bi-weekly cadence, OR 6+ engines monthly cadence',
+  bandStart:7.0, bandEnd:14.0,
+  dependencies:'Activates after blocks transition to Consensus ownership',
+  rationale:'Post-stabilization retained engagement supporting the Consensus internal team as they sustain and extend the signal-driven motions. Bi-weekly or monthly cadence. Not production work, not QA on live execution.'
+};
+
+const SECTIONS = [
+  { key:'reqrec', title:'Required and Recommended', note:'$200K-$300K core, $237K-$344K with A3 channel motion' },
+  { key:'sug', title:'Suggested', note:'Strong candidates with conditional or alternate funding' },
+  { key:'opt', title:'Optional', note:'2027 pipeline expansion, advisory, and planning blocks' }
+];
+
+function buildRoadmap() {
+  const roadmap = document.getElementById('roadmap');
+  const totalWidth = LABEL_W + MONTHS.length * MONTH_PX;
+  roadmap.style.width = totalWidth + 'px';
+
+  // Active engagement window background shading (May 2026 through Dec 2026)
+  const activeBg = document.createElement('div');
+  activeBg.className = 'active-window-bg';
+  activeBg.style.left = LABEL_W + 'px';
+  activeBg.style.width = (8 * MONTH_PX) + 'px';
+  roadmap.appendChild(activeBg);
+
+  // Time axis
+  const timeAxis = document.createElement('div');
+  timeAxis.className = 'time-axis';
+
+  const corner = document.createElement('div');
+  corner.className = 'time-axis-corner';
+  corner.textContent = 'BLOCK · INVESTMENT';
+  timeAxis.appendChild(corner);
+
+  const months = document.createElement('div');
+  months.className = 'time-months';
+  months.style.width = (MONTHS.length * MONTH_PX) + 'px';
+
+  MONTHS.forEach((m, i) => {
+    const ml = document.createElement('div');
+    ml.className = 'month-label';
+    ml.style.left = (i * MONTH_PX) + 'px';
+    ml.innerHTML = `<div class="m">${m[0]}</div><div class="y">${m[1]}</div>`;
+    months.appendChild(ml);
+
+    if (i > 0) {
+      const div = document.createElement('div');
+      div.className = 'month-divider';
+      if (QUARTER_STARTS.has(i)) div.classList.add('quarter');
+      if (YEAR_STARTS.has(i)) div.classList.add('year');
+      div.style.left = (i * MONTH_PX) + 'px';
+      months.appendChild(div);
+    }
+  });
+  timeAxis.appendChild(months);
+  roadmap.appendChild(timeAxis);
+
+  // Render dividers also into the body area (extend below time axis)
+  // Done via active-window-bg already; individual dividers per row would clutter
+
+  // Render sections
+  SECTIONS.forEach(s => {
+    const sh = document.createElement('div');
+    sh.className = 'section-header';
+    sh.innerHTML = `<div class="sh-content"><h2>${s.title}</h2><span class="sh-note">${s.note}</span></div>`;
+    roadmap.appendChild(sh);
+
+    blocks.filter(b => b.section === s.key).forEach(b => {
+      roadmap.appendChild(renderBlock(b));
+    });
+  });
+
+  // F1 overlay
+  const overlayHeader = document.createElement('div');
+  overlayHeader.className = 'section-header';
+  overlayHeader.innerHTML = `<div class="sh-content"><h2>Retained Advisory Overlay</h2><span class="sh-note">Continuous post-stabilization advisory band</span></div>`;
+  roadmap.appendChild(overlayHeader);
+  roadmap.appendChild(renderOverlay(F1));
+}
+
+function renderBlock(block) {
+  const row = document.createElement('div');
+  row.className = 'row';
+
+  const label = document.createElement('div');
+  label.className = 'label tier-accent-' + block.tier.toLowerCase();
+  let html = `<div class="row-block-id">${block.id}</div><div class="row-block-name">${block.name}</div>`;
+  if (block.section === 'reqrec' && block.investment) {
+    html += `<div class="row-investment">${block.investment}</div>`;
+  }
+  label.innerHTML = html;
+  row.appendChild(label);
+
+  const track = document.createElement('div');
+  track.className = 'track';
+  track.style.width = (MONTHS.length * MONTH_PX) + 'px';
+
+  // Earliest start dotted box
+  const gap = block.phases[0].start - block.earliestStart;
+  if (gap >= 0.9) {
+    const eb = document.createElement('div');
+    eb.className = 'earliest-box';
+    eb.style.left = (block.earliestStart * MONTH_PX) + 'px';
+    eb.style.width = (gap * MONTH_PX) + 'px';
+    track.appendChild(eb);
+  }
+
+  // Phase segments
+  block.phases.forEach((phase, idx) => {
+    const seg = document.createElement('div');
+    seg.className = 'phase phase-' + phase.role;
+    seg.style.left = (phase.start * MONTH_PX) + 'px';
+    seg.style.width = ((phase.end - phase.start) * MONTH_PX) + 'px';
+
+    if (idx === 0) {
+      const lbl = document.createElement('span');
+      lbl.className = 'phase-id-label';
+      if (phase.role === 'advisory' || phase.role === 'planning') lbl.classList.add('dark');
+      lbl.textContent = block.id;
+      seg.appendChild(lbl);
+    }
+
+    track.appendChild(seg);
+  });
+
+  // Hover
+  track.addEventListener('mousemove', e => showTooltip(e, block));
+  track.addEventListener('mouseleave', hideTooltip);
+
+  row.appendChild(track);
+  return row;
+}
+
+function renderOverlay(block) {
+  const row = document.createElement('div');
+  row.className = 'row overlay-row';
+
+  const label = document.createElement('div');
+  label.className = 'label tier-accent-optional';
+  label.innerHTML = `<div class="row-block-id">${block.id}</div><div class="row-block-name">${block.name}</div><div class="row-investment">${block.investment}</div>`;
+  row.appendChild(label);
+
+  const track = document.createElement('div');
+  track.className = 'track';
+  track.style.width = (MONTHS.length * MONTH_PX) + 'px';
+
+  const band = document.createElement('div');
+  band.className = 'overlay-band';
+  band.style.left = (block.bandStart * MONTH_PX) + 'px';
+  band.style.width = ((block.bandEnd - block.bandStart) * MONTH_PX) + 'px';
+  band.textContent = 'F1 active when blocks transition to Consensus ownership · pricing tiered by engine count and cadence';
+  track.appendChild(band);
+
+  track.addEventListener('mousemove', e => showTooltip(e, block));
+  track.addEventListener('mouseleave', hideTooltip);
+
+  row.appendChild(track);
+  return row;
+}
+
+const tooltip = document.getElementById('tooltip');
+
+function showTooltip(e, block) {
+  let html = `<div class="tt-tier">${block.tier}</div>
+    <div class="tt-id">${block.id}</div>
+    <div class="tt-name">${block.fullName}</div>`;
+
+  if (block.investment) {
+    html += `<div class="tt-row"><span class="tt-label">Investment</span><span class="tt-value">${block.investment}</span></div>`;
+  }
+  if (block.investmentDetail) {
+    html += `<div class="tt-investment-detail">${block.investmentDetail}</div>`;
+  }
+  if (block.phases) {
+    const total = block.phases[block.phases.length - 1].end - block.phases[0].start;
+    const wks = Math.round(total * 4.33);
+    html += `<div class="tt-row"><span class="tt-label">Duration</span><span class="tt-value">~${wks} weeks active</span></div>`;
+  }
+  if (block.dependencies) {
+    html += `<div class="tt-row"><span class="tt-label">Dependencies</span><span class="tt-value">${block.dependencies}</span></div>`;
+  }
+  if (block.conditional) {
+    html += `<div class="tt-row"><span class="tt-label">Note</span><span class="tt-value">Conditional placement on timeline. Actual position depends on parent block selection.</span></div>`;
+  }
+  if (block.rationale) {
+    html += `<div class="tt-rationale">${block.rationale}</div>`;
+  }
+
+  tooltip.className = 'tooltip visible tier-' + block.tier.toLowerCase();
+  tooltip.innerHTML = html;
+
+  const tw = tooltip.offsetWidth;
+  const th = tooltip.offsetHeight;
+  let x = e.clientX + 18;
+  let y = e.clientY + 18;
+  if (x + tw > window.innerWidth - 16) x = e.clientX - tw - 18;
+  if (y + th > window.innerHeight - 16) y = e.clientY - th - 18;
+  if (x < 8) x = 8;
+  if (y < 8) y = 8;
+  tooltip.style.left = x + 'px';
+  tooltip.style.top = y + 'px';
+}
+
+function hideTooltip() {
+  tooltip.classList.remove('visible');
+}
+
+buildRoadmap();
+
+})();
+
+</script>
+
+</body>
+</html>
